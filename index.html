@@ -1,0 +1,426 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>N.P Pomboo | Swimming Products & Services</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;700&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg-dark: #02283a;
+      --bg-secondary: #036a9c;
+      --text-light: #ffffff;
+      --text-medium: #cce7f3;
+      --accent: #00c2ff;
+      --font-primary: 'Montserrat', sans-serif;
+      --font-secondary: 'Playfair Display', serif;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: var(--font-primary);
+      background-color: var(--bg-dark);
+      color: var(--text-light);
+      line-height: 1.6;
+      overflow-x: hidden;
+    }
+
+    .container {
+      max-width: 1100px;
+      margin: auto;
+      padding: 0 20px;
+    }
+
+    h1, h2, h3 {
+      font-family: var(--font-secondary);
+      color: var(--text-light);
+    }
+
+    h2 {
+      text-align: center;
+      margin-bottom: 2rem;
+      position: relative;
+    }
+
+    h2::after {
+      content: '';
+      position: absolute;
+      bottom: -8px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 80px;
+      height: 3px;
+      background-color: var(--accent);
+      box-shadow: 0 0 8px var(--accent);
+    }
+
+    a {
+      color: var(--accent);
+      text-decoration: none;
+    }
+
+    .btn {
+      display: inline-block;
+      background-color: var(--accent);
+      color: var(--bg-dark);
+      padding: 12px 25px;
+      border-radius: 6px;
+      font-weight: bold;
+      text-transform: uppercase;
+      transition: 0.3s;
+    }
+
+    .btn:hover {
+      background-color: #fff;
+      color: var(--accent);
+      box-shadow: 0 0 15px var(--accent);
+    }
+
+    /* HEADER */
+    header {
+      background-color: rgba(0, 30, 50, 0.9);
+      position: fixed;
+      width: 100%;
+      top: 0;
+      left: 0;
+      z-index: 100;
+      padding: 15px 0;
+      backdrop-filter: blur(6px);
+      transition: background-color 0.3s;
+    }
+
+    header .container {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    #logo {
+      font-family: var(--font-secondary);
+      font-size: 1.8rem;
+    }
+
+    #logo span {
+      color: var(--accent);
+    }
+
+    nav ul {
+      list-style: none;
+      display: flex;
+      gap: 25px;
+    }
+
+    nav ul li a {
+      color: var(--text-light);
+      font-weight: bold;
+      transition: color 0.3s;
+    }
+
+    nav ul li a:hover {
+      color: var(--accent);
+    }
+
+    /* HERO */
+    #home {
+      background: url('images/nppool (2).jpg') no-repeat center/cover;
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      position: relative;
+      opacity: 0;
+      transform: translateY(20px);
+      transition: opacity 1s ease, transform 1s ease;
+    }
+
+    #home.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    #home::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background-color: rgba(0, 40, 60, 0.5);
+    }
+
+    #home .container {
+      position: relative;
+      z-index: 2;
+    }
+
+    #home h1 {
+      font-size: 3rem;
+      color: #fff;
+    }
+
+    #home h1 span {
+      color: var(--accent);
+    }
+
+    #home p {
+      font-size: 1.2rem;
+      margin-top: 1rem;
+      color: var(--text-medium);
+    }
+
+    /* SECTION ANIMATION */
+    section {
+      opacity: 0;
+      transform: translateY(40px);
+      transition: all 1s ease-out;
+    }
+
+    section.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* ABOUT */
+    #about {
+      padding: 80px 0;
+      background-color: var(--bg-secondary);
+    }
+
+    #about .container {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 40px;
+    }
+
+    #about img {
+      flex: 1;
+      border-radius: 10px;
+      max-width: 400px;
+    }
+
+    #about .about-text {
+      flex: 1;
+    }
+
+    /* SERVICES */
+    #services {
+      padding: 80px 0;
+    }
+
+    .services-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 30px;
+    }
+
+    .service-item {
+      background-color: #014a6a;
+      padding: 25px;
+      border-radius: 10px;
+      text-align: center;
+      transition: transform 0.3s;
+    }
+
+    .service-item:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 0 15px var(--accent);
+    }
+
+    .service-item h3 {
+      color: var(--accent);
+      margin-bottom: 10px;
+    }
+
+    /* GALLERY */
+    #gallery {
+      background-color: var(--bg-secondary);
+      padding: 80px 0;
+    }
+
+    .gallery-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 15px;
+    }
+
+    .gallery-grid img {
+      width: 100%;
+      border-radius: 8px;
+      transition: transform 0.4s;
+    }
+
+    .gallery-grid img:hover {
+      transform: scale(1.05);
+    }
+
+    /* CONTACT */
+    #contact {
+      padding: 80px 0;
+    }
+
+    form {
+      max-width: 600px;
+      margin: auto;
+    }
+
+    input, textarea {
+      width: 100%;
+      padding: 12px;
+      margin-bottom: 15px;
+      border: none;
+      border-radius: 5px;
+    }
+
+    input[type="submit"] {
+      background-color: var(--accent);
+      color: var(--bg-dark);
+      font-weight: bold;
+    }
+
+    .contact-info {
+      text-align: center;
+      margin-top: 30px;
+      color: var(--text-medium);
+    }
+
+    iframe {
+      width: 100%;
+      height: 300px;
+      border: none;
+      border-radius: 10px;
+      margin-top: 20px;
+    }
+
+    footer {
+      text-align: center;
+      background-color: #01161f;
+      color: var(--text-medium);
+      padding: 20px;
+    }
+
+    @media(max-width:768px){
+      #about .container {
+        flex-direction: column;
+      }
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <div class="container">
+    <div id="logo">N.P <span>Pomboo</span></div>
+    <nav>
+      <ul>
+        <li><a href="#home">Home</a></li>
+        <li><a href="#about">About</a></li>
+        <li><a href="#services">Services</a></li>
+        <li><a href="#gallery">Gallery</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<section id="home">
+  <div class="container">
+    <h1>Experience <span>Clean Blue Waters</span></h1>
+    <p>Dealers in Swimming Pool Products, Lessons & Maintenance Services</p>
+    <a href="#contact" class="btn">Contact Us</a>
+  </div>
+</section>
+
+<section id="about">
+  <div class="container">
+    <img src="images/nppool (3).jpg" alt="Swimming pool maintenance">
+    <div class="about-text">
+      <h2>About N.P Pomboo</h2>
+      <p>At N.P Pomboo, we are your trusted partners in swimming pool solutions. From top-quality pool products and accessories to professional cleaning, maintenance, and personalized swimming lessons — we bring excellence to every drop.</p>
+      <p>Our goal is to make your swimming experience refreshing, safe, and stress-free. Dive into quality and reliability with us.</p>
+    </div>
+  </div>
+</section>
+
+<section id="services">
+  <div class="container">
+    <h2>Our Services</h2>
+    <div class="services-grid">
+      <div class="service-item">
+        <h3>Swimming Pool Products</h3>
+        <p>High-quality pumps, filters, tiles, and accessories for all pool types.</p>
+      </div>
+      <div class="service-item">
+        <h3>Swimming Lessons</h3>
+        <p>Learn to swim confidently with our certified trainers — for kids and adults.</p>
+      </div>
+      <div class="service-item">
+        <h3>Cleaning & Maintenance</h3>
+        <p>Regular and deep cleaning services to keep your pool safe and sparkling.</p>
+      </div>
+      <div class="service-item">
+        <h3>Equipment & Accessories</h3>
+        <p>We supply pool covers, lighting, heaters, ladders, and more.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="gallery">
+  <div class="container">
+    <h2>Gallery</h2>
+    <div class="gallery-grid">
+      <img src="https://images.unsplash.com/photo-1579389083046-e3df9c2b04da?auto=format&fit=crop&w=800&q=80" alt="Pool 1">
+      <img src="https://images.unsplash.com/photo-1590080875831-4a25b6b8d6b0?auto=format&fit=crop&w=800&q=80" alt="Pool 2">
+      <img src="https://images.unsplash.com/photo-1507238691740-187a5b1d37b8?auto=format&fit=crop&w=800&q=80" alt="Pool 3">
+      <img src="https://images.unsplash.com/photo-1583454110559-21b7eecb48f0?auto=format&fit=crop&w=800&q=80" alt="Pool 4">
+    </div>
+  </div>
+</section>
+
+<section id="contact">
+  <div class="container">
+    <h2>Contact Us</h2>
+    <form>
+      <input type="text" placeholder="Your Name" required>
+      <input type="email" placeholder="Your Email" required>
+      <textarea placeholder="Your Message" rows="5" required></textarea>
+      <input type="submit" value="Send Message">
+    </form>
+
+    <div class="contact-info">
+      <p><strong> Address:</strong> Mbezi Beach, Makonde</p>
+      <p><strong> P.O. Box:</strong> 65179, Dar es Salaam</p>
+      <p><strong> Phone:</strong> +255 679 198 927 / +255 713 588 786 / +255 759 358 652</p>
+      <p><strong> Email:</strong> <a href="mailto:info@nppomboo.co.tz">info@nppomboo.co.tz</a></p>
+      <iframe src="https://www.google.com/maps?q=Mbezi+Beach+Makonde,+Dar+es+Salaam,+Tanzania&output=embed"></iframe>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <p>© 2025 N.P Pomboo | Swimming Pool Products & Services</p>
+</footer>
+
+<script>
+  // Reveal sections on scroll
+  const sections = document.querySelectorAll("section");
+  const revealOnScroll = () => {
+    const trigger = window.innerHeight * 0.85;
+    sections.forEach(sec => {
+      const top = sec.getBoundingClientRect().top;
+      if (top < trigger) sec.classList.add("visible");
+    });
+  };
+  window.addEventListener("scroll", revealOnScroll);
+  window.addEventListener("load", revealOnScroll);
+</script>
+
+</body>
+</html>
