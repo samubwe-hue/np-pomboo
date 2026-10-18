@@ -1,426 +1,52 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>N.P Pomboo | Swimming Products & Services</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#f3fbfc">
+  <meta name="description" content="N.P Pomboo swimming pool products, lessons, cleaning and maintenance in Mbezi Beach Makonde, Dar es Salaam.">
+  <title>N.P Pomboo | Make a splash</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;700&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
-  <style>
-    :root {
-      --bg-dark: #02283a;
-      --bg-secondary: #036a9c;
-      --text-light: #ffffff;
-      --text-medium: #cce7f3;
-      --accent: #00c2ff;
-      --font-primary: 'Montserrat', sans-serif;
-      --font-secondary: 'Playfair Display', serif;
-    }
-
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-      scroll-behavior: smooth;
-    }
-
-    body {
-      font-family: var(--font-primary);
-      background-color: var(--bg-dark);
-      color: var(--text-light);
-      line-height: 1.6;
-      overflow-x: hidden;
-    }
-
-    .container {
-      max-width: 1100px;
-      margin: auto;
-      padding: 0 20px;
-    }
-
-    h1, h2, h3 {
-      font-family: var(--font-secondary);
-      color: var(--text-light);
-    }
-
-    h2 {
-      text-align: center;
-      margin-bottom: 2rem;
-      position: relative;
-    }
-
-    h2::after {
-      content: '';
-      position: absolute;
-      bottom: -8px;
-      left: 50%;
-      transform: translateX(-50%);
-      width: 80px;
-      height: 3px;
-      background-color: var(--accent);
-      box-shadow: 0 0 8px var(--accent);
-    }
-
-    a {
-      color: var(--accent);
-      text-decoration: none;
-    }
-
-    .btn {
-      display: inline-block;
-      background-color: var(--accent);
-      color: var(--bg-dark);
-      padding: 12px 25px;
-      border-radius: 6px;
-      font-weight: bold;
-      text-transform: uppercase;
-      transition: 0.3s;
-    }
-
-    .btn:hover {
-      background-color: #fff;
-      color: var(--accent);
-      box-shadow: 0 0 15px var(--accent);
-    }
-
-    /* HEADER */
-    header {
-      background-color: rgba(0, 30, 50, 0.9);
-      position: fixed;
-      width: 100%;
-      top: 0;
-      left: 0;
-      z-index: 100;
-      padding: 15px 0;
-      backdrop-filter: blur(6px);
-      transition: background-color 0.3s;
-    }
-
-    header .container {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-    }
-
-    #logo {
-      font-family: var(--font-secondary);
-      font-size: 1.8rem;
-    }
-
-    #logo span {
-      color: var(--accent);
-    }
-
-    nav ul {
-      list-style: none;
-      display: flex;
-      gap: 25px;
-    }
-
-    nav ul li a {
-      color: var(--text-light);
-      font-weight: bold;
-      transition: color 0.3s;
-    }
-
-    nav ul li a:hover {
-      color: var(--accent);
-    }
-
-    /* HERO */
-    #home {
-      background: url('images/nppool (2).jpg') no-repeat center/cover;
-      height: 100vh;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      text-align: center;
-      position: relative;
-      opacity: 0;
-      transform: translateY(20px);
-      transition: opacity 1s ease, transform 1s ease;
-    }
-
-    #home.visible {
-      opacity: 1;
-      transform: translateY(0);
-    }
-
-    #home::before {
-      content: '';
-      position: absolute;
-      inset: 0;
-      background-color: rgba(0, 40, 60, 0.5);
-    }
-
-    #home .container {
-      position: relative;
-      z-index: 2;
-    }
-
-    #home h1 {
-      font-size: 3rem;
-      color: #fff;
-    }
-
-    #home h1 span {
-      color: var(--accent);
-    }
-
-    #home p {
-      font-size: 1.2rem;
-      margin-top: 1rem;
-      color: var(--text-medium);
-    }
-
-    /* SECTION ANIMATION */
-    section {
-      opacity: 0;
-      transform: translateY(40px);
-      transition: all 1s ease-out;
-    }
-
-    section.visible {
-      opacity: 1;
-      transform: translateY(0);
-    }
-
-    /* ABOUT */
-    #about {
-      padding: 80px 0;
-      background-color: var(--bg-secondary);
-    }
-
-    #about .container {
-      display: flex;
-      flex-wrap: wrap;
-      align-items: center;
-      gap: 40px;
-    }
-
-    #about img {
-      flex: 1;
-      border-radius: 10px;
-      max-width: 400px;
-    }
-
-    #about .about-text {
-      flex: 1;
-    }
-
-    /* SERVICES */
-    #services {
-      padding: 80px 0;
-    }
-
-    .services-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-      gap: 30px;
-    }
-
-    .service-item {
-      background-color: #014a6a;
-      padding: 25px;
-      border-radius: 10px;
-      text-align: center;
-      transition: transform 0.3s;
-    }
-
-    .service-item:hover {
-      transform: translateY(-5px);
-      box-shadow: 0 0 15px var(--accent);
-    }
-
-    .service-item h3 {
-      color: var(--accent);
-      margin-bottom: 10px;
-    }
-
-    /* GALLERY */
-    #gallery {
-      background-color: var(--bg-secondary);
-      padding: 80px 0;
-    }
-
-    .gallery-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-      gap: 15px;
-    }
-
-    .gallery-grid img {
-      width: 100%;
-      border-radius: 8px;
-      transition: transform 0.4s;
-    }
-
-    .gallery-grid img:hover {
-      transform: scale(1.05);
-    }
-
-    /* CONTACT */
-    #contact {
-      padding: 80px 0;
-    }
-
-    form {
-      max-width: 600px;
-      margin: auto;
-    }
-
-    input, textarea {
-      width: 100%;
-      padding: 12px;
-      margin-bottom: 15px;
-      border: none;
-      border-radius: 5px;
-    }
-
-    input[type="submit"] {
-      background-color: var(--accent);
-      color: var(--bg-dark);
-      font-weight: bold;
-    }
-
-    .contact-info {
-      text-align: center;
-      margin-top: 30px;
-      color: var(--text-medium);
-    }
-
-    iframe {
-      width: 100%;
-      height: 300px;
-      border: none;
-      border-radius: 10px;
-      margin-top: 20px;
-    }
-
-    footer {
-      text-align: center;
-      background-color: #01161f;
-      color: var(--text-medium);
-      padding: 20px;
-    }
-
-    @media(max-width:768px){
-      #about .container {
-        flex-direction: column;
-      }
-    }
-  </style>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+  <script src="script.js" defer></script>
 </head>
 <body>
-
-<header>
-  <div class="container">
-    <div id="logo">N.P <span>Pomboo</span></div>
-    <nav>
-      <ul>
-        <li><a href="#home">Home</a></li>
-        <li><a href="#about">About</a></li>
-        <li><a href="#services">Services</a></li>
-        <li><a href="#gallery">Gallery</a></li>
-        <li><a href="#contact">Contact</a></li>
-      </ul>
-    </nav>
-  </div>
-</header>
-
-<section id="home">
-  <div class="container">
-    <h1>Experience <span>Clean Blue Waters</span></h1>
-    <p>Dealers in Swimming Pool Products, Lessons & Maintenance Services</p>
-    <a href="#contact" class="btn">Contact Us</a>
-  </div>
-</section>
-
-<section id="about">
-  <div class="container">
-    <img src="images/nppool (3).jpg" alt="Swimming pool maintenance">
-    <div class="about-text">
-      <h2>About N.P Pomboo</h2>
-      <p>At N.P Pomboo, we are your trusted partners in swimming pool solutions. From top-quality pool products and accessories to professional cleaning, maintenance, and personalized swimming lessons — we bring excellence to every drop.</p>
-      <p>Our goal is to make your swimming experience refreshing, safe, and stress-free. Dive into quality and reliability with us.</p>
+  <a class="skip-link" href="#main">Skip to content</a>
+  <header class="site-header" id="top">
+    <div class="container nav-wrap">
+      <a class="brand" href="#home" aria-label="N.P Pomboo home"><span class="brand-mark" aria-hidden="true"><svg viewBox="0 0 40 40"><path d="M20 4C16 11 9 18 9 25a11 11 0 0 0 22 0c0-7-7-14-11-21Z"/><path d="M14 26c.5 3.5 2.5 5.2 6 5.7"/></svg></span><span class="brand-name">N.P <b>POMBOO</b><small>THE DOLPHINS</small></span></a>
+      <button class="menu-toggle" aria-expanded="false" aria-controls="primary-nav" aria-label="Open navigation"><span></span><span></span></button>
+      <nav id="primary-nav" class="nav-links" aria-label="Main navigation"><a href="#home">Home</a><a href="#about">About</a><a href="#services">Services</a><a href="#gallery">Gallery</a><a href="#contact">Contact</a><a class="nav-cta" href="#contact">Talk to our team <span>↗</span></a></nav>
     </div>
-  </div>
-</section>
-
-<section id="services">
-  <div class="container">
-    <h2>Our Services</h2>
-    <div class="services-grid">
-      <div class="service-item">
-        <h3>Swimming Pool Products</h3>
-        <p>High-quality pumps, filters, tiles, and accessories for all pool types.</p>
+  </header>
+  <main id="main">
+    <section class="hero" id="home">
+      <div class="hero-water" aria-hidden="true"><div class="sun"></div><div class="pool-edge"></div></div>
+      <div class="container hero-content">
+        <div class="hero-copy reveal"><span class="eyebrow"><i></i> YOUR POOL, OUR PASSION</span><h1>Make every<br>day a <em>splash.</em></h1><p>Beautiful pools. Confident swimmers. Clear, cared-for water. N.P Pomboo brings everything your pool needs, all in one place.</p><div class="hero-actions"><a class="button button-primary" href="#services">Explore our services <span>↘</span></a><a class="text-link" href="#about">Get to know us <span>→</span></a></div><div class="hero-location"><span class="pin">⌖</span><span>Made for life in <b>Dar es Salaam</b></span></div></div>
+        <div class="hero-visual reveal" aria-label="Decorative illustration of a swimming pool"><div class="visual-label"><span class="label-dot"></span> A LITTLE MORE BLUE</div><div class="pool-illustration"><div class="pool-sun"></div><div class="pool-water"><i></i><i></i><i></i><i></i></div><div class="pool-ladder"><b></b><b></b><b></b></div><div class="pool-tile"></div></div><div class="floating-card"><span class="float-icon">✳</span><span>Care that goes<br><b>deeper.</b></span></div><span class="visual-sparkle sparkle-one">✳</span><span class="visual-sparkle sparkle-two">✳</span></div>
       </div>
-      <div class="service-item">
-        <h3>Swimming Lessons</h3>
-        <p>Learn to swim confidently with our certified trainers — for kids and adults.</p>
-      </div>
-      <div class="service-item">
-        <h3>Cleaning & Maintenance</h3>
-        <p>Regular and deep cleaning services to keep your pool safe and sparkling.</p>
-      </div>
-      <div class="service-item">
-        <h3>Equipment & Accessories</h3>
-        <p>We supply pool covers, lighting, heaters, ladders, and more.</p>
-      </div>
-    </div>
-  </div>
-</section>
-
-<section id="gallery">
-  <div class="container">
-    <h2>Gallery</h2>
-    <div class="gallery-grid">
-      <img src="https://images.unsplash.com/photo-1579389083046-e3df9c2b04da?auto=format&fit=crop&w=800&q=80" alt="Pool 1">
-      <img src="https://images.unsplash.com/photo-1590080875831-4a25b6b8d6b0?auto=format&fit=crop&w=800&q=80" alt="Pool 2">
-      <img src="https://images.unsplash.com/photo-1507238691740-187a5b1d37b8?auto=format&fit=crop&w=800&q=80" alt="Pool 3">
-      <img src="https://images.unsplash.com/photo-1583454110559-21b7eecb48f0?auto=format&fit=crop&w=800&q=80" alt="Pool 4">
-    </div>
-  </div>
-</section>
-
-<section id="contact">
-  <div class="container">
-    <h2>Contact Us</h2>
-    <form>
-      <input type="text" placeholder="Your Name" required>
-      <input type="email" placeholder="Your Email" required>
-      <textarea placeholder="Your Message" rows="5" required></textarea>
-      <input type="submit" value="Send Message">
-    </form>
-
-    <div class="contact-info">
-      <p><strong> Address:</strong> Mbezi Beach, Makonde</p>
-      <p><strong> P.O. Box:</strong> 65179, Dar es Salaam</p>
-      <p><strong> Phone:</strong> +255 679 198 927 / +255 713 588 786 / +255 759 358 652</p>
-      <p><strong> Email:</strong> <a href="mailto:info@nppomboo.co.tz">info@nppomboo.co.tz</a></p>
-      <iframe src="https://www.google.com/maps?q=Mbezi+Beach+Makonde,+Dar+es+Salaam,+Tanzania&output=embed"></iframe>
-    </div>
-  </div>
-</section>
-
-<footer>
-  <p>© 2025 N.P Pomboo | Swimming Pool Products & Services</p>
-</footer>
-
-<script>
-  // Reveal sections on scroll
-  const sections = document.querySelectorAll("section");
-  const revealOnScroll = () => {
-    const trigger = window.innerHeight * 0.85;
-    sections.forEach(sec => {
-      const top = sec.getBoundingClientRect().top;
-      if (top < trigger) sec.classList.add("visible");
-    });
-  };
-  window.addEventListener("scroll", revealOnScroll);
-  window.addEventListener("load", revealOnScroll);
-</script>
-
+      <div class="hero-bottom container"><span>POOL PRODUCTS</span><i></i><span>SWIM LESSONS</span><i></i><span>POOL CARE</span><i></i><span>THE GOOD LIFE</span></div>
+    </section>
+    <section class="intro section-pad" id="about"><div class="container intro-grid"><div class="intro-art reveal"><div class="art-circle"></div><div class="art-water"><span>NP</span><small>EST. WITH CARE</small></div><div class="art-note">A better kind<br>of blue <b>↗</b></div></div><div class="intro-copy reveal"><span class="eyebrow">A GOOD DAY STARTS HERE</span><h2>We believe every<br>pool has a <em>purpose.</em></h2><p class="lead">A place to play, to learn, to slow down, or simply enjoy the sunshine.</p><p>N.P Pomboo helps families and businesses get more from their pools. From finding the right products to learning to swim and keeping water in great shape, our team is here to make pool ownership feel easy.</p><a class="under-link" href="#contact">Let’s make it happen <span>→</span></a></div></div></section>
+    <section class="services section-pad" id="services"><div class="container"><div class="section-heading reveal"><div><span class="eyebrow">HOW WE MAKE A DIFFERENCE</span><h2>Everything for your<br><em>pool life.</em></h2></div><p>From the first splash to the everyday care, we make it simpler to enjoy your pool.</p></div><div class="service-grid">
+      <article class="service-card service-products reveal"><div class="card-top"><span class="service-icon">✳</span><span class="card-number">01 / 04</span></div><div class="service-art products-art"><span class="product-bottle"></span><span class="product-ring"></span><span class="product-ball"></span></div><div><h3>Pool products</h3><p>Find the essentials for a pool that looks inviting and feels ready for a swim.</p><a href="#contact" aria-label="Ask about pool products">Ask us <span>↗</span></a></div></article>
+      <article class="service-card service-lessons reveal"><div class="card-top"><span class="service-icon">≈</span><span class="card-number">02 / 04</span></div><div class="service-art lessons-art"><span class="lesson-sun"></span><span class="lesson-wave wave-a"></span><span class="lesson-wave wave-b"></span><span class="lesson-person">●</span></div><div><h3>Swimming lessons</h3><p>Friendly lessons for kids and adults to build confidence and enjoy the water.</p><a href="#contact" aria-label="Ask about swimming lessons">Find your flow <span>↗</span></a></div></article>
+      <article class="service-card service-clean reveal"><div class="card-top"><span class="service-icon">✧</span><span class="card-number">03 / 04</span></div><div class="service-art clean-art"><span class="clean-spark">✦</span><span class="clean-bubble b1"></span><span class="clean-bubble b2"></span><span class="clean-bubble b3"></span><span class="clean-brush"></span></div><div><h3>Cleaning & care</h3><p>Regular cleaning and maintenance to keep your pool clear, fresh, and swim-ready.</p><a href="#contact" aria-label="Ask about pool cleaning and maintenance">Keep it clear <span>↗</span></a></div></article>
+      <article class="service-card service-gear reveal"><div class="card-top"><span class="service-icon">◉</span><span class="card-number">04 / 04</span></div><div class="service-art gear-art"><span class="gear-goggle"></span><span class="gear-flipper"></span><span class="gear-drop">●</span></div><div><h3>Equipment & accessories</h3><p>Useful gear and thoughtful extras for safer, more comfortable time in the water.</p><a href="#contact" aria-label="Ask about pool equipment and accessories">Gear up <span>↗</span></a></div></article>
+    </div></div></section>
+    <section class="promise section-pad"><div class="container promise-inner reveal"><div><span class="eyebrow">THE POMBOO PROMISE</span><h2>Good water.<br><em>Good energy.</em></h2></div><p>We bring practical know-how and a personal touch to every pool, lesson, and conversation. Because a well-cared-for pool is more than water — it’s where good things happen.</p><a class="button button-light" href="#contact">Meet your pool people <span>↗</span></a><span class="promise-sun" aria-hidden="true">✳</span></div></section>
+    <section class="gallery section-pad" id="gallery"><div class="container"><div class="section-heading reveal"><div><span class="eyebrow">A FEELING, IN FOUR FRAMES</span><h2>Life looks good<br><em>in blue.</em></h2></div><p>A glimpse of what we love. Add your own pool, people, and products to make this gallery yours.</p></div><div class="gallery-grid">
+      <figure class="gallery-item gallery-large reveal"><div class="gallery-scene scene-pool"><span class="scene-sun"></span><span class="scene-water"></span><span class="scene-plant plant-one">♣</span><span class="scene-plant plant-two">♣</span><img class="gallery-photo" src="images/pool-afternoon.jpg" alt="Swimming pool at N.P Pomboo" onerror="this.hidden=true"></div><figcaption><span>01</span> A slower kind of afternoon</figcaption></figure>
+      <figure class="gallery-item reveal"><div class="gallery-scene scene-lessons"><span class="scene-person person-one">●</span><span class="scene-person person-two">●</span><span class="scene-water"></span><img class="gallery-photo" src="images/swimming-lessons.jpg" alt="Swimming lessons" onerror="this.hidden=true"></div><figcaption><span>02</span> Little steps, big confidence</figcaption></figure>
+      <figure class="gallery-item reveal"><div class="gallery-scene scene-care"><span class="scene-clean">✧</span><span class="scene-water"></span><span class="scene-bubble"></span><img class="gallery-photo" src="images/pool-cleaning.jpg" alt="Pool cleaning and care" onerror="this.hidden=true"></div><figcaption><span>03</span> Clear water, happy days</figcaption></figure>
+      <figure class="gallery-item gallery-wide reveal"><div class="gallery-scene scene-gear"><span class="scene-ring"></span><span class="scene-flipper"></span><span class="scene-ball"></span><img class="gallery-photo" src="images/pool-products.jpg" alt="Pool products and accessories" onerror="this.hidden=true"></div><figcaption><span>04</span> Ready for your next swim</figcaption></figure>
+    </div><p class="gallery-hint">To add or change photos, put your images in the <code>images</code> folder using the filenames listed in the README.</p></div></section>
+    <section class="contact section-pad" id="contact"><div class="container contact-grid"><div class="contact-copy reveal"><span class="eyebrow">YOUR NEXT SPLASH STARTS HERE</span><h2>Let’s talk<br><em>pool.</em></h2><p>Need a product, a lesson, or a little help with pool care? Tell us what you have in mind and our team will be happy to help.</p><div class="contact-details"><div><span class="detail-icon">⌖</span><span><b>Come say hello</b><small>Mbezi Beach Makonde<br>P.O. Box 65179, Dar es Salaam</small></span></div><div><span class="detail-icon">◷</span><span><b>Call or WhatsApp</b><small><a href="tel:+255679198927">+255 679 198 927</a><br><a href="tel:+255713588786">+255 713 588 786</a><br><a href="tel:+255759358652">+255 759 358 652</a></small></span></div></div></div><form class="contact-form reveal" id="contact-form"><div class="form-heading"><span>✳</span><div><h3>Send us a message</h3><p>We’ll open WhatsApp with your message ready to send.</p></div></div><label for="name">Your name</label><input id="name" name="name" type="text" placeholder="e.g. Amina" required><label for="service">What can we help with?</label><select id="service" name="service" required><option value="" disabled selected>Choose a service</option><option>Pool products</option><option>Swimming lessons</option><option>Cleaning & maintenance</option><option>Equipment & accessories</option><option>Something else</option></select><label for="message">A little more detail <span>(optional)</span></label><textarea id="message" name="message" rows="3" placeholder="Tell us what you’re looking for…"></textarea><button class="button button-primary form-submit" type="submit">Continue to WhatsApp <span>↗</span></button><p class="form-note">Choose the number you want to message on the next screen.</p></form></div></section>
+  </main>
+  <footer class="site-footer"><div class="container footer-main"><a class="brand footer-brand" href="#home"><span class="brand-mark" aria-hidden="true"><svg viewBox="0 0 40 40"><path d="M20 4C16 11 9 18 9 25a11 11 0 0 0 22 0c0-7-7-14-11-21Z"/><path d="M14 26c.5 3.5 2.5 5.2 6 5.7"/></svg></span><span class="brand-name">N.P <b>POMBOO</b><small>THE DOLPHINS</small></span></a><p>A little more blue<br>in every day.</p><nav aria-label="Footer navigation"><a href="#about">About</a><a href="#services">Services</a><a href="#gallery">Gallery</a><a href="#contact">Contact</a></nav><a href="#top" class="back-top">Back to top ↑</a></div><div class="container footer-bottom"><span>© <span id="year">2026</span> N.P Pomboo. All rights reserved.</span><span>Mbezi Beach Makonde · Dar es Salaam</span></div></footer>
+  <div class="whatsapp-picker" id="whatsapp-picker" hidden><div class="picker-backdrop" data-close></div><div class="picker-card" role="dialog" aria-modal="true" aria-labelledby="picker-title"><button class="picker-close" aria-label="Close" data-close>×</button><span class="picker-icon">↗</span><h3 id="picker-title">Choose a WhatsApp number</h3><p>Your message is ready. Pick the number you’d like to send it to.</p><div class="picker-numbers"><a data-phone="255679198927" href="#"><span>+255 679 198 927</span><b>Open WhatsApp ↗</b></a><a data-phone="255713588786" href="#"><span>+255 713 588 786</span><b>Open WhatsApp ↗</b></a><a data-phone="255759358652" href="#"><span>+255 759 358 652</span><b>Open WhatsApp ↗</b></a></div></div></div>
 </body>
 </html>
